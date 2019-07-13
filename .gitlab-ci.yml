@@ -9,8 +9,8 @@ cache:
     - .m2/repository/
     - target/
 
-package:
-  stage: package
+build:
+  stage: build
   script:
     - mvn $MAVEN_CLI_OPTS package
   artifacts:

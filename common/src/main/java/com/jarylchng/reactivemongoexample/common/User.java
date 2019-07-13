@@ -29,7 +29,9 @@ public class User {
         this.phoneNumber = phoneNumber;
     }
 
-    public String getUserID() { return userID; }
+    public String getUserID() {
+        return userID;
+    }
 
     public void setUserID(String id) {
         this.userID = id;
@@ -80,6 +82,7 @@ public class User {
             return Single.fromPublisher(collection.insertOne(user));
         }
 
-        private DAO() { }
+        private DAO() {
+        }
     }
 }

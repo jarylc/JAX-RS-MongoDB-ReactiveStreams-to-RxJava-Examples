@@ -23,11 +23,6 @@
             <artifactId>undertow-servlet</artifactId>
             <version>${undertow.version}</version>
         </dependency>
-        <dependency>
-            <groupId>io.undertow</groupId>
-            <artifactId>undertow-core</artifactId>
-            <version>${undertow.version}</version>
-        </dependency>
 
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
@@ -36,9 +31,13 @@
         </dependency>
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-jaxrs</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-rxjava2</artifactId>
             <version>${resteasy.version}</version>
-            <scope>com</scope>
         </dependency>
     </dependencies>
 
@@ -66,32 +65,36 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.jarylchng.reactivemongoexample.undertowresteasy</mainClass>
+                    <mainClass>com.jarylchng.reactivemongoexample.undertowresteasy.UndertowResteasy</mainClass>
                 </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-assembly-plugin</artifactId>
+                <artifactId>maven-shade-plugin</artifactId>
                 <executions>
                     <execution>
                         <phase>package</phase>
                         <goals>
-                            <goal>single</goal>
+                            <goal>shade</goal>
                         </goals>
                         <configuration>
-                            <archive>
-                                <manifest>
-                                    <mainClass>
-                                        com.jarylchng.reactivemongoexample.undertowresteasy.UndertowResteasy
-                                    </mainClass>
-                                </manifest>
-                            </archive>
-                            <descriptorRefs>
-                                <descriptorRef>jar-with-dependencies</descriptorRef>
-                            </descriptorRefs>
+                            <transformers>
+                                <transformer implementation="org.apache.maven.plugins.shade.resource.ServicesResourceTransformer" />
+                            </transformers>
                         </configuration>
                     </execution>
                 </executions>
+            </plugin>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-jar-plugin</artifactId>
+                <configuration>
+                    <archive>
+                        <manifest>
+                            <mainClass>com.jarylchng.reactivemongoexample.undertowresteasy.UndertowResteasy</mainClass>
+                        </manifest>
+                    </archive>
+                </configuration>
             </plugin>
         </plugins>
     </build>

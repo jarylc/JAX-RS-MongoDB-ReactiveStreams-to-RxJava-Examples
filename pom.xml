@@ -20,7 +20,6 @@
 
         <undertow.version>2.0.22.Final</undertow.version>
         <resteasy.version>3.8.0.Final</resteasy.version>
-        <servletresteasy.version>3.0.19.Final</servletresteasy.version>
     </properties>
 
     <modules>

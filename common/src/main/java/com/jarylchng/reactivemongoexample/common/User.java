@@ -4,31 +4,35 @@ import com.mongodb.reactivestreams.client.*;
 import io.reactivex.Single;
 import org.bson.codecs.configuration.CodecRegistry;
 import org.bson.codecs.pojo.PojoCodecProvider;
+import org.bson.codecs.pojo.annotations.BsonId;
+
+import java.util.UUID;
 
 import static com.mongodb.client.model.Filters.eq;
 import static org.bson.codecs.configuration.CodecRegistries.fromProviders;
 import static org.bson.codecs.configuration.CodecRegistries.fromRegistries;
 
 public class User {
+    @BsonId
     private String id;
+    private String userID;
     private String name;
     private String phoneNumber;
 
     public User() {
     }
 
-    public User(String id, String name, String phoneNumber) {
-        this.id = id;
+    public User(String userID, String name, String phoneNumber) {
+        this.id = UUID.randomUUID().toString();
+        this.userID = userID;
         this.name = name;
         this.phoneNumber = phoneNumber;
     }
 
-    public String getId() {
-        return id;
-    }
+    public String getUserID() { return userID; }
 
-    public void setId(String id) {
-        this.id = id;
+    public void setUserID(String id) {
+        this.userID = id;
     }
 
     public String getName() {
@@ -50,7 +54,7 @@ public class User {
     @Override
     public String toString() {
         return "User{" +
-                "id='" + id + '\'' +
+                "id='" + userID + '\'' +
                 ", name='" + name + '\'' +
                 ", phoneNumber=" + phoneNumber +
                 '}';
@@ -65,7 +69,7 @@ public class User {
                 .withCodecRegistry(pojoCodecRegistry);
 
         public static Single<User> findByID(String id) {
-            return Single.fromPublisher(collection.find(eq("_id", id)).first());
+            return Single.fromPublisher(collection.find(eq("userID", id)).first());
         }
 
         /*public static Single<User> findByName(String name) {
@@ -76,7 +80,6 @@ public class User {
             return Single.fromPublisher(collection.insertOne(user));
         }
 
-        private DAO() {
-        }
+        private DAO() { }
     }
 }

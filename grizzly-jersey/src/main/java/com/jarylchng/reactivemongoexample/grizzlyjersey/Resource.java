@@ -14,7 +14,7 @@ import java.util.concurrent.CompletionStage;
 public class Resource {
     @GET
     @Path("{userID}")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_HTML)
     public CompletionStage<String> getIt(@PathParam("userID") String userID) {
         CompletableFuture<String> future = new CompletableFuture<>();
 
@@ -28,7 +28,7 @@ public class Resource {
 
     @GET
     @Path("{userID}/{name}/{phoneNumber}")
-    @Produces(MediaType.TEXT_PLAIN)
+    @Produces(MediaType.TEXT_HTML)
     public CompletionStage<String> newUser(@PathParam("userID") String userID,
                                            @PathParam("name") String name,
                                            @PathParam("phoneNumber") String phoneNumber) {

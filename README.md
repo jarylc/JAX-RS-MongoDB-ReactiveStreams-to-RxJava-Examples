@@ -1,6 +1,7 @@
 # JAX-RS MongoDB ReactiveStreams to RxJava Examples
 
 #### A one stop project for examples of using the ReactiveStreams MongoDB driver with RxJava.
+##### Note: runs embedded MongoDB on separate port 27018 by default, no need to install it.
 
 # Current Implementations Done
   - Jersey on Grizzly container (grizzly-jersey)

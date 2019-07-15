@@ -1,5 +1,6 @@
 package com.jarylchng.reactivemongoexample.common;
 
+import com.mongodb.MongoClientSettings;
 import com.mongodb.reactivestreams.client.*;
 import io.reactivex.Single;
 import org.bson.codecs.configuration.CodecRegistry;
@@ -62,7 +63,7 @@ public class User {
                 '}';
     }
 
-    public static class DAO {
+    public static class ReactiveDAO {
         private static MongoClient mongoClient = MongoClients.create("mongodb://localhost:27018");
         private static MongoDatabase database = mongoClient.getDatabase("reactiveexample");
         private static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClients.getDefaultCodecRegistry(),
@@ -74,15 +75,31 @@ public class User {
             return Single.fromPublisher(collection.find(eq("userID", id)).first());
         }
 
-        /*public static Single<User> findByName(String name) {
-            return Single.fromPublisher(collection.find(eq("name", name)).first());
-        }*/
-
         public static Single<Success> insert(User user) {
             return Single.fromPublisher(collection.insertOne(user));
         }
 
-        private DAO() {
+        private ReactiveDAO() {
+        }
+    }
+
+    public static class SyncedDAO {
+        private static com.mongodb.client.MongoClient mongoClient = com.mongodb.client.MongoClients.create("mongodb://localhost:27018");
+        private static com.mongodb.client.MongoDatabase database = mongoClient.getDatabase("reactiveexample");
+        private static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+                fromProviders(PojoCodecProvider.builder().automatic(true).build()));
+        private static com.mongodb.client.MongoCollection<User> collection = database.getCollection("user", User.class)
+                .withCodecRegistry(pojoCodecRegistry);
+
+        public static User findByID(String id) {
+            return collection.find(eq("userID", id)).first();
+        }
+
+        public static void insert(User user) {
+            collection.insertOne(user);
+        }
+
+        private SyncedDAO() {
         }
     }
 }

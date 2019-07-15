@@ -9,13 +9,13 @@ import javax.ws.rs.GET;
 import javax.ws.rs.Path;
 import javax.ws.rs.PathParam;
 
-@Path("user")
-public class Resource {
+@Path("async")
+public class ResourceReactive {
     @GET
     @Path("{userID}")
     @Stream
     public Single<String> getIt(@PathParam("userID") String userID) {
-        return User.DAO.findByID(userID)
+        return User.ReactiveDAO.findByID(userID)
                 .map(User::toString)
                 .onErrorReturn(Throwable::getMessage);
     }
@@ -28,7 +28,7 @@ public class Resource {
                                   @PathParam("phoneNumber") String phoneNumber) {
         User user = new User(userID, name, phoneNumber);
 
-        return User.DAO.insert(user)
+        return User.ReactiveDAO.insert(user)
                 .map(Success::toString)
                 .onErrorReturn(Throwable::getMessage);
     }

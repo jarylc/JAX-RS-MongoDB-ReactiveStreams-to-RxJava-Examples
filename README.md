@@ -22,8 +22,10 @@ $ java -jar grizzly-jersey/target/grizzly-jersey-1.0.jar
 ## 2. Endpoints
 | METHOD | ENDPOINT | DESCRIPTION |
 | ------ | ------ | ------ |
-| GET | /user/{userID} | Get user from database
-| GET | /user/{userID}/{name}/{phoneNumber} | Create user (GET to be benchmarkable with [wrk](https://github.com/wg/wrk))
+| GET | /async/{userID} | Get user from database
+| GET | /async/{userID}/{name}/{phoneNumber} | Create user
+| GET | /sync/{userID} | Get user from database (synced)
+| GET | /sync/{userID}/{name}/{phoneNumber} | Create user (synced)
 
 ## 3. Benchmark
 Use your tool of choice like [wrk](https://github.com/wg/wrk) or [JMeter](https://jmeter.apache.org/)

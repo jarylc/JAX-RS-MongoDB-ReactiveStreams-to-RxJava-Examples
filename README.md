@@ -5,6 +5,7 @@
 
 # Current Implementations Done
   - Jersey on Grizzly (grizzly-jersey)
+  - Jersey on Netty (netty-jersey)
   - RestEasy on Undertow (undertow-resteasy)
   - RestEasy on Netty (netty-resteasy)
 

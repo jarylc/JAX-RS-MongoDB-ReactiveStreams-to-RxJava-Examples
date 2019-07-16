@@ -1,7 +1,7 @@
 package com.jarylchng.reactivemongoexample.undertowresteasy;
 
 import com.jarylchng.reactivemongoexample.common.EmbedMongo;
-import com.jarylchng.reactivemongoexample.common.ResteasyApplication;
+import com.jarylchng.reactivemongoexample.common.CommonApplication;
 import io.undertow.Undertow;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
 
@@ -14,7 +14,7 @@ public class UndertowResteasy extends Application {
 
         Undertow.Builder builder = Undertow.builder().addHttpListener(port, host);
         UndertowJaxrsServer server = new UndertowJaxrsServer().start(builder);
-        server.deploy(ResteasyApplication.class, "/");
+        server.deploy(CommonApplication.class, "/");
     }
 
     public static void main(String[] args) {

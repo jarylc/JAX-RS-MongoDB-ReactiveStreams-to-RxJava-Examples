@@ -5,7 +5,7 @@ import java.util.Collections;
 import java.util.HashSet;
 import java.util.Set;
 
-public class ResteasyApplication extends Application {
+public class CommonApplication extends Application {
     @Override
     public Set<Class<?>> getClasses() {
         return Collections.emptySet();

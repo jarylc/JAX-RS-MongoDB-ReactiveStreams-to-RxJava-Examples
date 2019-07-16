@@ -13,6 +13,11 @@ build:
   stage: build
   script:
     - mvn $MAVEN_CLI_OPTS package
+    - mkdir ci
+    - mv */target/*.jar ci
+    - rm ci/original-*.jar ci/common*.jar
+    - for f in ci/*; do cat stub.sh $f > $(echo $f | cut -d'/' -f 2); done
+    - chmod +x *.jar
   artifacts:
     paths:
-      - "*/target/*.jar"
+      - "*.jar"

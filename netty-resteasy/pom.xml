@@ -9,18 +9,23 @@
         <version>1.0</version>
     </parent>
 
-    <artifactId>grizzly-jersey</artifactId>
+    <artifactId>netty-resteasy</artifactId>
 
     <dependencies>
         <dependency>
             <groupId>com.jarylchng</groupId>
-            <artifactId>common-jersey</artifactId>
+            <artifactId>common-resteasy</artifactId>
             <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>org.glassfish.jersey.containers</groupId>
-            <artifactId>jersey-container-grizzly2-http</artifactId>
-            <version>${jersey.version}</version>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-core-spi</artifactId>
+            <version>${resteasy.version}</version>
+        </dependency>
+        <dependency>
+            <groupId>org.jboss.resteasy</groupId>
+            <artifactId>resteasy-netty4</artifactId>
+            <version>${resteasy.version}</version>
         </dependency>
     </dependencies>
 
@@ -48,7 +53,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.jarylchng.reactivemongoexample.grizzlyjersey.GrizzlyJersey</mainClass>
+                    <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.UndertowResteasy</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -75,7 +80,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.jarylchng.reactivemongoexample.grizzlyjersey.GrizzlyJersey</mainClass>
+                            <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.UndertowResteasy</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

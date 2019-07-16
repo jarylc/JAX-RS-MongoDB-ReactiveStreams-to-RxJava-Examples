@@ -1,6 +1,4 @@
-package com.jarylchng.reactivemongoexample.grizzlyjersey;
-
-import com.jarylchng.reactivemongoexample.common.User;
+package com.jarylchng.reactivemongoexample.common;
 
 import javax.ws.rs.GET;
 import javax.ws.rs.Path;
@@ -14,7 +12,7 @@ import java.util.concurrent.CompletionStage;
 public class ResourceReactive {
     @GET
     @Path("{userID}")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.TEXT_PLAIN)
     public CompletionStage<String> getIt(@PathParam("userID") String userID) {
         CompletableFuture<String> future = new CompletableFuture<>();
 
@@ -28,7 +26,7 @@ public class ResourceReactive {
 
     @GET
     @Path("{userID}/{name}/{phoneNumber}")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.TEXT_PLAIN)
     public CompletionStage<String> newUser(@PathParam("userID") String userID,
                                            @PathParam("name") String name,
                                            @PathParam("phoneNumber") String phoneNumber) {

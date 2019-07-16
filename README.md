@@ -4,8 +4,9 @@
 ##### Note: runs embedded MongoDB on separate port 27018 by default, no need to install it.
 
 # Current Implementations Done
-  - Jersey on Grizzly container (grizzly-jersey)
-  - RestEasy on Undertow container (undertow-resteasy)
+  - Jersey on Grizzly (grizzly-jersey)
+  - RestEasy on Undertow (undertow-resteasy)
+  - RestEasy on Netty (netty-resteasy)
 
 # Guide
 ## 1. Running implementations

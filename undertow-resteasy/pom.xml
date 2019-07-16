@@ -14,7 +14,7 @@
     <dependencies>
         <dependency>
             <groupId>com.jarylchng</groupId>
-            <artifactId>common</artifactId>
+            <artifactId>common-resteasy</artifactId>
             <version>${project.version}</version>
         </dependency>
 
@@ -23,20 +23,9 @@
             <artifactId>undertow-servlet</artifactId>
             <version>${undertow.version}</version>
         </dependency>
-
         <dependency>
             <groupId>org.jboss.resteasy</groupId>
             <artifactId>resteasy-undertow</artifactId>
-            <version>${resteasy.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-jaxrs</artifactId>
-            <version>${resteasy.version}</version>
-        </dependency>
-        <dependency>
-            <groupId>org.jboss.resteasy</groupId>
-            <artifactId>resteasy-rxjava2</artifactId>
             <version>${resteasy.version}</version>
         </dependency>
     </dependencies>

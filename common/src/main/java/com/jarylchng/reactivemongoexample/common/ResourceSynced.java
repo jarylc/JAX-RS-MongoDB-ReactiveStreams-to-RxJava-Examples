@@ -10,7 +10,7 @@ import javax.ws.rs.core.MediaType;
 public class ResourceSynced {
     @GET
     @Path("{userID}")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.TEXT_PLAIN)
     public String getIt(@PathParam("userID") String userID) {
         User user = User.SyncedDAO.findByID(userID);
 
@@ -22,7 +22,7 @@ public class ResourceSynced {
 
     @GET
     @Path("{userID}/{name}/{phoneNumber}")
-    @Produces(MediaType.TEXT_HTML)
+    @Produces(MediaType.TEXT_PLAIN)
     public String newUser(@PathParam("userID") String userID,
                           @PathParam("name") String name,
                           @PathParam("phoneNumber") String phoneNumber) {

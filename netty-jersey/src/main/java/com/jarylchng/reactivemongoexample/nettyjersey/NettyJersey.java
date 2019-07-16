@@ -1,6 +1,8 @@
 package com.jarylchng.reactivemongoexample.nettyjersey;
 
 import com.jarylchng.reactivemongoexample.common.EmbedMongo;
+import com.jarylchng.reactivemongoexample.common.ResourceReactive;
+import com.jarylchng.reactivemongoexample.common.ResourceSynced;
 import org.glassfish.jersey.netty.httpserver.NettyHttpContainerProvider;
 import org.glassfish.jersey.server.ResourceConfig;
 
@@ -8,11 +10,12 @@ import java.net.URI;
 
 public class NettyJersey {
     private static void startServer() {
-        ResourceConfig resourceConfig = new ResourceConfig()
-                .packages("com.jarylchng.reactivemongoexample.common");
+        ResourceConfig rc = new ResourceConfig()
+                .register(ResourceReactive.class)
+                .register(ResourceSynced.class);
         NettyHttpContainerProvider.createHttp2Server(
                 URI.create("http://localhost:8080/"),
-                resourceConfig, null);
+                rc, null);
     }
 
     public static void main(String[] args) {

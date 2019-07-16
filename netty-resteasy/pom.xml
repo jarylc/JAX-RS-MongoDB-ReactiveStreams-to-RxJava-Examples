@@ -43,7 +43,7 @@
                     </execution>
                 </executions>
                 <configuration>
-                    <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.UndertowResteasy</mainClass>
+                    <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.NettyResteasy</mainClass>
                 </configuration>
             </plugin>
             <plugin>
@@ -52,7 +52,7 @@
                 <configuration>
                     <archive>
                         <manifest>
-                            <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.UndertowResteasy</mainClass>
+                            <mainClass>com.jarylchng.reactivemongoexample.nettyresteasy.NettyResteasy</mainClass>
                         </manifest>
                     </archive>
                 </configuration>

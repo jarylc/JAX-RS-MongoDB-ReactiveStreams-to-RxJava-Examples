@@ -1,7 +1,7 @@
 package com.jarylchng.reactivemongoexample.nettyresteasy;
 
-import com.jarylchng.reactivemongoexample.common.EmbedMongo;
 import com.jarylchng.reactivemongoexample.common.CommonApplication;
+import com.jarylchng.reactivemongoexample.common.EmbedMongo;
 import org.jboss.resteasy.core.ResteasyDeploymentImpl;
 import org.jboss.resteasy.plugins.server.netty.NettyJaxrsServer;
 import org.jboss.resteasy.spi.ResteasyDeployment;

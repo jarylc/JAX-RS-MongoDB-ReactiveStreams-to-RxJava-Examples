@@ -1,7 +1,7 @@
 package com.jarylchng.reactivemongoexample.undertowresteasy;
 
-import com.jarylchng.reactivemongoexample.common.EmbedMongo;
 import com.jarylchng.reactivemongoexample.common.CommonApplication;
+import com.jarylchng.reactivemongoexample.common.EmbedMongo;
 import io.undertow.Undertow;
 import org.jboss.resteasy.plugins.server.undertow.UndertowJaxrsServer;
 

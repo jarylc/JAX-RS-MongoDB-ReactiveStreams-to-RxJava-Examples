@@ -31,9 +31,11 @@
 
         <module>grizzly-jersey</module>
         <module>netty-jersey</module>
+        <module>tomcat-jersey</module>
 
         <module>undertow-resteasy</module>
         <module>netty-resteasy</module>
+        <module>tomcat-resteasy</module>
     </modules>
 
     <build>

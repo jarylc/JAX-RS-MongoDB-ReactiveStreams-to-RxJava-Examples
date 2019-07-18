@@ -17,9 +17,10 @@
 
         <rxjava.version>2.2.10</rxjava.version>
 
-        <jersey.version>2.29</jersey.version>
-
         <undertow.version>2.0.22.Final</undertow.version>
+        <tomcat.version>9.0.22</tomcat.version>
+
+        <jersey.version>2.29</jersey.version>
         <resteasy.version>4.1.1.Final</resteasy.version>
     </properties>
 
@@ -27,13 +28,16 @@
         <module>common</module>
         <module>common-jersey</module>
         <module>common-resteasy</module>
+
         <module>grizzly-jersey</module>
         <module>netty-jersey</module>
+
         <module>undertow-resteasy</module>
         <module>netty-resteasy</module>
     </modules>
 
     <build>
+        <finalName>${project.artifactId}</finalName>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -48,6 +52,7 @@
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-shade-plugin</artifactId>
+                <version>3.2.1</version>
                 <executions>
                     <execution>
                         <phase>package</phase>

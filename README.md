@@ -1,5 +1,4 @@
-# JAX-RS MongoDB ReactiveStreams to RxJava Examples
-
+# JAX-RS MongoDB ReactiveStreams to RxJava Examples [![pipeline status](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/badges/master/pipeline.svg)](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/pipelines)
 ### A one stop project for examples of using the ReactiveStreams MongoDB driver with RxJava.
 #### Includes initializing with multiple embedded web servers for further reference and benchmarking
 ##### Note: runs embedded MongoDB on separate port 27018 by default, no need to install it.
@@ -14,7 +13,7 @@
 
 ## Resource references
   - [Jersey Reactive Resource](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/blob/master/common-jersey/src/main/java/com/jarylchng/reactivemongoexample/common/ResourceReactive.java) - Jersey does not have support for RxJava and is implemented with Completable
-  - [RESTEasy Reactive Resource](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/blob/master/common-resteasy/src/main/java/com/jarylchng/reactivemongoexample/common/ResourceReactive.java)) - RESTEasy does have pluggable support for RxJava (using resteasy-rxjava2) and is implemented with Single
+  - [RESTEasy Reactive Resource](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/blob/master/common-resteasy/src/main/java/com/jarylchng/reactivemongoexample/common/ResourceReactive.java) - RESTEasy does have pluggable support for RxJava (using resteasy-rxjava2) and is implemented with Single
   - [Synced Resource](https://gitlab.com/jarylc/jax-rs-mongodb-reactivestreams-to-rxjava-examples/blob/master/common/src/main/java/com/jarylchng/reactivemongoexample/common/ResourceSynced.java)
 
 # Guide

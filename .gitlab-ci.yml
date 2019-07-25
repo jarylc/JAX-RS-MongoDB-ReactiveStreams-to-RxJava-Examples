@@ -21,3 +21,4 @@ build:
   artifacts:
     paths:
       - "*.jar"
+      - "*.sh"

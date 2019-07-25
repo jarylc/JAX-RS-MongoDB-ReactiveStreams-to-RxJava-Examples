@@ -21,4 +21,4 @@ build:
   artifacts:
     paths:
       - "*.jar"
-      - "*.sh"
+      - "benchmark-wrk.sh"

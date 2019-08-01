@@ -25,8 +25,8 @@ public class TomcatJersey extends Application {
         Context context = tomcat.addWebapp("", base.getAbsolutePath());
         Tomcat.addServlet(context, "tomcat-jersey",
                 new ServletContainer(new ResourceConfig()
-                        .register(ResourceReactive.class)
-                        .register(ResourceSynced.class)))
+                        .register(new ResourceReactive())
+                        .register(new ResourceSynced())))
                 .setAsyncSupported(true);
         context.addServletMappingDecoded("/*", "tomcat-jersey");
 

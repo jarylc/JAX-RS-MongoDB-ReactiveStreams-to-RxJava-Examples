@@ -91,11 +91,11 @@ public class User {
         private static com.mongodb.client.MongoCollection<User> collection = database.getCollection("user", User.class)
                 .withCodecRegistry(pojoCodecRegistry);
 
-        public static User findByID(String id) {
+        public synchronized static User findByID(String id) {
             return collection.find(eq("userID", id)).first();
         }
 
-        public static void insert(User user) {
+        public synchronized static void insert(User user) {
             collection.insertOne(user);
         }
 

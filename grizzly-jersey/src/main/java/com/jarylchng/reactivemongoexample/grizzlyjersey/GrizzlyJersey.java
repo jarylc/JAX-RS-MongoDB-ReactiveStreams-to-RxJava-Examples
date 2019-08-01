@@ -11,8 +11,8 @@ import java.net.URI;
 public class GrizzlyJersey {
     private static void startServer() {
         ResourceConfig rc = new ResourceConfig()
-                .register(ResourceReactive.class)
-                .register(ResourceSynced.class);
+                .register(new ResourceReactive())
+                .register(new ResourceSynced());
         GrizzlyHttpServerFactory.createHttpServer(URI.create("http://localhost:8080/"), rc);
     }
 

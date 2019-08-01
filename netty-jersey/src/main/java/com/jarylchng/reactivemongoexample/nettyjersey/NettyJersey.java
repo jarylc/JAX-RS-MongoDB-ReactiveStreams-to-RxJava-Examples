@@ -11,8 +11,8 @@ import java.net.URI;
 public class NettyJersey {
     private static void startServer() {
         ResourceConfig rc = new ResourceConfig()
-                .register(ResourceReactive.class)
-                .register(ResourceSynced.class);
+                .register(new ResourceReactive())
+                .register(new ResourceSynced());
         NettyHttpContainerProvider.createHttp2Server(
                 URI.create("http://localhost:8080/"),
                 rc, null);

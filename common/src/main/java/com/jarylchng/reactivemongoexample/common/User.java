@@ -84,11 +84,11 @@ public class User {
     }
 
     public static class SyncedDAO {
-        private static com.mongodb.client.MongoClient mongoClient = com.mongodb.client.MongoClients.create("mongodb://localhost:27018");
-        private static com.mongodb.client.MongoDatabase database = mongoClient.getDatabase("reactiveexample");
-        private static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
+        private volatile static com.mongodb.client.MongoClient mongoClient = com.mongodb.client.MongoClients.create("mongodb://localhost:27018");
+        private volatile static com.mongodb.client.MongoDatabase database = mongoClient.getDatabase("reactiveexample");
+        private volatile static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClientSettings.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-        private static com.mongodb.client.MongoCollection<User> collection = database.getCollection("user", User.class)
+        private volatile static com.mongodb.client.MongoCollection<User> collection = database.getCollection("user", User.class)
                 .withCodecRegistry(pojoCodecRegistry);
 
         public synchronized static User findByID(String id) {

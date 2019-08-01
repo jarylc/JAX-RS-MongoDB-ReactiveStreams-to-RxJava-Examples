@@ -64,18 +64,18 @@ public class User {
     }
 
     public static class ReactiveDAO {
-        private static MongoClient mongoClient = MongoClients.create("mongodb://localhost:27018");
-        private static MongoDatabase database = mongoClient.getDatabase("reactiveexample");
-        private static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClients.getDefaultCodecRegistry(),
+        private volatile static MongoClient mongoClient = MongoClients.create("mongodb://localhost:27018");
+        private volatile static MongoDatabase database = mongoClient.getDatabase("reactiveexample");
+        private volatile static CodecRegistry pojoCodecRegistry = fromRegistries(MongoClients.getDefaultCodecRegistry(),
                 fromProviders(PojoCodecProvider.builder().automatic(true).build()));
-        private static MongoCollection<User> collection = database.getCollection("user", User.class)
+        private volatile static MongoCollection<User> collection = database.getCollection("user", User.class)
                 .withCodecRegistry(pojoCodecRegistry);
 
-        public static Single<User> findByID(String id) {
+        public synchronized static Single<User> findByID(String id) {
             return Single.fromPublisher(collection.find(eq("userID", id)).first());
         }
 
-        public static Single<Success> insert(User user) {
+        public synchronized static Single<Success> insert(User user) {
             return Single.fromPublisher(collection.insertOne(user));
         }
 

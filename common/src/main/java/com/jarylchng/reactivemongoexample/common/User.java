@@ -71,11 +71,11 @@ public class User {
         private volatile static MongoCollection<User> collection = database.getCollection("user", User.class)
                 .withCodecRegistry(pojoCodecRegistry);
 
-        public synchronized static Single<User> findByID(String id) {
+        public static Single<User> findByID(String id) {
             return Single.fromPublisher(collection.find(eq("userID", id)).first());
         }
 
-        public synchronized static Single<Success> insert(User user) {
+        public static Single<Success> insert(User user) {
             return Single.fromPublisher(collection.insertOne(user));
         }
 
@@ -91,11 +91,11 @@ public class User {
         private volatile static com.mongodb.client.MongoCollection<User> collection = database.getCollection("user", User.class)
                 .withCodecRegistry(pojoCodecRegistry);
 
-        public synchronized static User findByID(String id) {
+        public static User findByID(String id) {
             return collection.find(eq("userID", id)).first();
         }
 
-        public synchronized static void insert(User user) {
+        public static void insert(User user) {
             collection.insertOne(user);
         }
 
